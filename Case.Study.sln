@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Case.Study.Api", "Case.Stud
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Case.Study.UI", "Case.Study.UI\Case.Study.UI.csproj", "{69580ACA-58B5-45B0-8B04-0407D4261DC0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Listener", "ConsoleApp1\Listener.csproj", "{760F0748-C46A-4F60-BEA4-7B921F49CD5D}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Case.Study.Listener", "ConsoleApp1\Case.Study.Listener.csproj", "{760F0748-C46A-4F60-BEA4-7B921F49CD5D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution

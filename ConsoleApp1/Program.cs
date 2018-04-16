@@ -1,14 +1,11 @@
 ﻿using RabbitMQ.Client;
 using RabbitMQ.Client.Events;
 using System;
-using System.Collections.Generic;
-using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
 using Newtonsoft.Json;
 using System.Data.SqlClient;
 
-namespace Listener
+namespace Case.Study.Listener
 {
     class Program
     {
@@ -82,8 +79,9 @@ namespace Listener
 
                 SqlCommand insertCommand = new SqlCommand("INSERT INTO dbo.Users (User_Email) VALUES (@0)", conn);
                 insertCommand.Parameters.Add(new SqlParameter("0", user.User_Email));
-                insertCommand.ExecuteNonQuery();
 
+                insertCommand.ExecuteNonQuery();
+           
                 SqlCommand sqlCommand = new SqlCommand("UPDATE Requests set Request_StatusID = 3 where" + "  Request_ID = " + request.Request_ID, conn);
                 sqlCommand.ExecuteNonQuery();
                 conn.Close();
