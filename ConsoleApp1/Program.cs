@@ -57,15 +57,17 @@ namespace Listener
                     var body = ea.Body;
                     var message = Encoding.UTF8.GetString(body);
                     Request request = JsonConvert.DeserializeObject<Request>(message);
-                    user = JsonConvert.DeserializeObject<User>(request.Request_Body);
-
+                
+                    InsertUser(request);
                 };
 
-                InsertUser(user);
+          
 
                 channel.BasicConsume(queue: "UserQueue",
                                      autoAck: false,
                                      consumer: consumer);
+
+                channel.QueueDelete(queue: "UserQueue");
 
                 Console.WriteLine(" İşe Alındınız. Teşekkürler :)");
                 Console.ReadLine();
@@ -73,20 +75,22 @@ namespace Listener
         }
 
 
-        public static void InsertUser(User user)
+        public static void InsertUser(Request request)
         {
             using (SqlConnection conn = new SqlConnection())
             {
+              
+
                 conn.ConnectionString = "data source=.;initial catalog=BURAK;user id=sa;password=as;multipleactiveresultsets=True;application name=EntityFramework&quot;";
                 conn.Open();
 
-
-                SqlCommand insertCommand = new SqlCommand("INSERT INTO dbo.User (User_Email, User_FullName, User_Password) VALUES (@0, @1, @2)", conn);
-
+                User user = JsonConvert.DeserializeObject<User>(request.Request_Body);
+                SqlCommand insertCommand = new SqlCommand("INSERT INTO dbo.Users (User_Email) VALUES (@0)", conn);
                 insertCommand.Parameters.Add(new SqlParameter("0", user.User_Email));
-                insertCommand.Parameters.Add(new SqlParameter("1", user.User_FullName));
-                insertCommand.Parameters.Add(new SqlParameter("2", user.User_Password));
                 insertCommand.ExecuteNonQuery();
+
+                SqlCommand sqlCommand = new SqlCommand("UPDATE Requests set Request_StatusID = 2 where" + "  Request_ID = " + request.Request_ID, conn);
+                sqlCommand.ExecuteNonQuery();
                 conn.Close();
             }
         }

@@ -213,3 +213,7 @@ C:\Users\hasanb\Downloads\Map\Case.Study.Api\obj\Debug\TR\Serverside.Api.resourc
 C:\Users\hasanb\Downloads\Map\Case.Study.Api\obj\Debug\Case.Study.Api.csproj.CopyComplete
 C:\Users\hasanb\Downloads\Map\Case.Study.Api\obj\Debug\Serverside.Api.dll
 C:\Users\hasanb\Downloads\Map\Case.Study.Api\obj\Debug\Serverside.Api.pdb
+C:\Users\hasanb\Downloads\Map\Case.Study.Api\bin\Microsoft.Diagnostics.Tracing.EventSource.dll
+C:\Users\hasanb\Downloads\Map\Case.Study.Api\bin\RabbitMQ.Client.dll
+C:\Users\hasanb\Downloads\Map\Case.Study.Api\bin\Microsoft.Diagnostics.Tracing.EventSource.xml
+C:\Users\hasanb\Downloads\Map\Case.Study.Api\bin\RabbitMQ.Client.xml
