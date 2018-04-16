@@ -7,17 +7,25 @@ using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json;
 
-namespace ConsoleApp1
+namespace Listener
 {
     class Program
     {
-        public class Person
+        public partial class User
         {
-            public int ID { get; set; }
-            public string Name { get; set; }
-            public string SurName { get; set; }
-            public DateTime BirthDate { get; set; }
-            public string Message { get; set; }
+            public long User_ID { get; set; }
+            public string User_Email { get; set; }
+            public Nullable<bool> User_EmailConfirmed { get; set; }
+            public string User_Password { get; set; }
+            public string User_PasswordHash { get; set; }
+            public string User_UserName { get; set; }
+            public Nullable<int> User_RoleID { get; set; }
+            public Nullable<bool> User_Active { get; set; }
+            public Nullable<System.DateTime> User_CreateDate { get; set; }
+            public string User_FullName { get; set; }
+
+            public virtual User User1 { get; set; }
+            public virtual User User2 { get; set; }
         }
 
         static void Main(string[] args)
@@ -26,7 +34,7 @@ namespace ConsoleApp1
             using (IConnection connection = factory.CreateConnection())
             using (IModel channel = connection.CreateModel())
             {
-                channel.QueueDeclare(queue: "Borsoft",
+                channel.QueueDeclare(queue: "UserQueue",
                                      durable: false,
                                      exclusive: false,
                                      autoDelete: false,
@@ -37,10 +45,10 @@ namespace ConsoleApp1
                 {
                     var body = ea.Body;
                     var message = Encoding.UTF8.GetString(body);
-                    Person person = JsonConvert.DeserializeObject<Person>(message);
-                    Console.WriteLine($" Adı: {person.Name} Soyadı:{person.SurName} [{person.Message}]");
+                    User user = JsonConvert.DeserializeObject<User>(message);
+                    Console.WriteLine($" Username: {user.User_UserName} Fullname:{user.User_FullName} ");
                 };
-                channel.BasicConsume(queue: "Borsoft",
+                channel.BasicConsume(queue: "UserQueue",
                                      autoAck: false,
                                      consumer: consumer);
 

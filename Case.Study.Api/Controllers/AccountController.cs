@@ -1,11 +1,14 @@
 ﻿using Case.Study.Api.Models;
 using Case.Study.Api.Utilities;
+using Newtonsoft.Json;
+using RabbitMQ.Client;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Security.Claims;
+using System.Text;
 using System.Threading;
 using System.Web;
 using System.Web.Http;
@@ -79,6 +82,8 @@ namespace Case.Study.Api.Controllers
                 result_.SuccessMessage = "ok";
                 result_.IsSuccess = true;
                 result_.Return = random_;
+
+                DoAddToQueue(UserModel_);
             }
             catch (Exception ex_)
             {
@@ -100,6 +105,30 @@ namespace Case.Study.Api.Controllers
                 return true;
             else
                 return false;
+        }
+
+        public void DoAddToQueue(User UserModel_)
+        {
+            var factory = new ConnectionFactory() { HostName = "localhost" };
+            using (IConnection connection = factory.CreateConnection())
+            using (IModel channel = connection.CreateModel())
+            {
+                channel.QueueDeclare(queue: "UserQueue",
+                                     durable: false,
+                                     exclusive: false,
+                                     autoDelete: false,
+                                     arguments: null);
+
+                string message = JsonConvert.SerializeObject(UserModel_);
+                var body = Encoding.UTF8.GetBytes(message);
+
+                channel.BasicPublish(exchange: "",
+                                     routingKey: "UserQueue",
+                                     basicProperties: null,
+                                     body: body);
+            }
+
+
         }
          
     }
