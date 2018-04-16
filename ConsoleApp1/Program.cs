@@ -72,7 +72,7 @@ namespace Listener
         }
 
 
-        public static void InsertUserAndUpdateRequestStatus(Request request)
+        private static void InsertUserAndUpdateRequestStatus(Request request)
         {
             using (SqlConnection conn = new SqlConnection())
             {
@@ -81,6 +81,7 @@ namespace Listener
                 conn.Open();
 
                 User user = JsonConvert.DeserializeObject<User>(request.Request_Body);
+
                 SqlCommand insertCommand = new SqlCommand("INSERT INTO dbo.Users (User_Email) VALUES (@0)", conn);
                 insertCommand.Parameters.Add(new SqlParameter("0", user.User_Email));
                 insertCommand.ExecuteNonQuery();
