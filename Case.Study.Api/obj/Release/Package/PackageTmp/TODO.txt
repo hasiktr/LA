@@ -1,0 +1,4 @@
+﻿Captcha system for clientside
+Create clientside with angularJs token based owin authentication
+create log mechanism logger.addlog(loglevel.high,message);
+use this ,predicate and params keywords as a method parameter. 

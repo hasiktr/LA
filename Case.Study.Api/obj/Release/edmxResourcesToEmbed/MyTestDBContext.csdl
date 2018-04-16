@@ -1,0 +1,103 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MyTestDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="MyTestDBEntities" annotation:LazyLoadingEnabled="true">
+    <EntitySet Name="Cities" EntityType="MyTestDBModel.City" />
+    <EntitySet Name="ConnectedUsers" EntityType="MyTestDBModel.ConnectedUser" />
+    <EntitySet Name="ErrorLogs" EntityType="MyTestDBModel.ErrorLog" />
+    <EntitySet Name="Roles" EntityType="MyTestDBModel.Role" />
+    <EntitySet Name="Users" EntityType="MyTestDBModel.User" />
+    <AssociationSet Name="FK_User_Role" Association="MyTestDBModel.FK_User_Role">
+      <End Role="City" EntitySet="Cities" />
+      <End Role="User" EntitySet="Users" />
+    </AssociationSet>
+    <AssociationSet Name="FK_User_User" Association="MyTestDBModel.FK_User_User">
+      <End Role="User" EntitySet="Users" />
+      <End Role="User1" EntitySet="Users" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="City">
+    <Key>
+      <PropertyRef Name="City_ID" />
+    </Key>
+    <Property Name="City_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="City_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="City_Code" Type="String" MaxLength="2" FixedLength="false" Unicode="true" />
+    <Property Name="City_latitude" Type="Decimal" Precision="9" Scale="6" />
+    <Property Name="City_Longitude" Type="Decimal" Precision="9" Scale="6" />
+    <NavigationProperty Name="Users" Relationship="MyTestDBModel.FK_User_Role" FromRole="City" ToRole="User" />
+  </EntityType>
+  <EntityType Name="ConnectedUser">
+    <Key>
+      <PropertyRef Name="Cous_ID" />
+    </Key>
+    <Property Name="Cous_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Cous_UserID" Type="Int64" />
+    <Property Name="Cous_ConnectionID" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Cous_ConnectionDate" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="ErrorLog">
+    <Key>
+      <PropertyRef Name="Error_ID" />
+    </Key>
+    <Property Name="Error_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Error_Code" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Error_StackTrace" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Error_InnerException" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="Error_DateTime" Type="DateTime" Precision="3" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="Role_ID" />
+    </Key>
+    <Property Name="Role_ID" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Role_Name" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="Role_Description" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="User_ID" />
+    </Key>
+    <Property Name="User_ID" Type="Int64" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="User_Email" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="User_EmailConfirmed" Type="Boolean" />
+    <Property Name="User_Password" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="User_PasswordHash" Type="String" MaxLength="Max" FixedLength="false" Unicode="true" />
+    <Property Name="User_UserName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="User_RoleID" Type="Int32" />
+    <Property Name="User_Active" Type="Boolean" />
+    <Property Name="User_CreateDate" Type="DateTime" Precision="3" />
+    <Property Name="User_FullName" Type="String" MaxLength="50" FixedLength="false" Unicode="true" />
+    <Property Name="User_Avatar" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="User_Latitude" Type="Decimal" Precision="9" Scale="6" />
+    <Property Name="User_Longitude" Type="Decimal" Precision="9" Scale="6" />
+    <Property Name="User_Note" Type="String" MaxLength="250" FixedLength="false" Unicode="true" />
+    <Property Name="User_CityID" Type="Int32" />
+    <NavigationProperty Name="City" Relationship="MyTestDBModel.FK_User_Role" FromRole="User" ToRole="City" />
+    <NavigationProperty Name="User1" Relationship="MyTestDBModel.FK_User_User" FromRole="User" ToRole="User1" />
+    <NavigationProperty Name="User2" Relationship="MyTestDBModel.FK_User_User" FromRole="User1" ToRole="User" />
+  </EntityType>
+  <Association Name="FK_User_Role">
+    <End Type="MyTestDBModel.City" Role="City" Multiplicity="0..1" />
+    <End Type="MyTestDBModel.User" Role="User" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="City">
+        <PropertyRef Name="City_ID" />
+      </Principal>
+      <Dependent Role="User">
+        <PropertyRef Name="User_CityID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_User_User">
+    <End Type="MyTestDBModel.User" Role="User" Multiplicity="1" />
+    <End Type="MyTestDBModel.User" Role="User1" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="User_ID" />
+      </Principal>
+      <Dependent Role="User1">
+        <PropertyRef Name="User_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>

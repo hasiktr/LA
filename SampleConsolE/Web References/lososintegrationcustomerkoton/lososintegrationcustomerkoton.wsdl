@@ -1,0 +1,2285 @@
+<?xml version="1.0" encoding="utf-8"?>
+<wsdl:definitions xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/" xmlns:soapenc="http://schemas.xmlsoap.org/soap/encoding/" xmlns:tm="http://microsoft.com/wsdl/mime/textMatching/" xmlns:mime="http://schemas.xmlsoap.org/wsdl/mime/" xmlns:tns="http://tempuri.org/" xmlns:http="http://schemas.xmlsoap.org/wsdl/http/" xmlns:s="http://www.w3.org/2001/XMLSchema" xmlns:soap12="http://schemas.xmlsoap.org/wsdl/soap12/" targetNamespace="http://tempuri.org/" xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+  <wsdl:types>
+    <s:schema elementFormDefault="qualified" targetNamespace="http://tempuri.org/">
+      <s:element name="KotonSosDoImportProductPost">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Products_" type="tns:SosProduct" />
+            <s:element minOccurs="0" maxOccurs="1" name="Username_" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password_" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SosProduct">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ProductProperties" type="tns:ArrayOfSosProductProperty" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProductBarcodes" type="tns:ArrayOfSosProductBarcode" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProductPrice" type="tns:ArrayOfSosProductPrice" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProductCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProductName" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfSosProductProperty">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SosProductProperty" nillable="true" type="tns:SosProductProperty" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SosProductProperty">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PropertyName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PropertyValue" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PropertyDescription" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfSosProductBarcode">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SosProductBarcode" nillable="true" type="tns:SosProductBarcode" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SosProductBarcode">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="BarcodeNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Barcode" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfSosProductPrice">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SosProductPrice" nillable="true" type="tns:SosProductPrice" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SosProductPrice">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PriceName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Price" type="s:decimal" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="KotonSosDoImportProductPostResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KotonSosDoImportProductPostResult" type="tns:SosResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SosResult">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="DocumentID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Errors" type="tns:ArrayOfSosError" />
+          <s:element minOccurs="1" maxOccurs="1" name="Success" type="s:boolean" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfSosError">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SosError" nillable="true" type="tns:SosError" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SosError">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ErrorNo" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ErrorCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Description" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Code1" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Code2" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Code3" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="KotonSosDoImportPartyPost">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PartyPost_" type="tns:SosParty" />
+            <s:element minOccurs="0" maxOccurs="1" name="Username_" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password_" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SosParty">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PartyProperties" type="tns:ArrayOfSosPartyProperty" />
+          <s:element minOccurs="0" maxOccurs="1" name="PartyCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PartyName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CustomerPriority" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContactName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ContactTitle" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Address" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Town" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CityCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="CountryCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RegionCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PostalCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Phone" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Fax" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="EMail" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TaxOffice" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TaxNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SpecialMessage" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PartyRole" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="CurrentStatus" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfSosPartyProperty">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SosPartyProperty" nillable="true" type="tns:SosPartyProperty" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SosPartyProperty">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="PropertyName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PropertyValue" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PropertyDescription" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="KotonSosDoImportPartyPostResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KotonSosDoImportPartyPostResult" type="tns:SosResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KotonSosDoImportSASPost">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SASPost_" type="tns:SosSAS" />
+            <s:element minOccurs="0" maxOccurs="1" name="Username_" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password_" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SosSAS">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SASDetails" type="tns:ArrayOfSosSASDetail" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReceivingOrderNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="JobOrderCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SupplierCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ModelCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ModelImageURL" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PlannedDeliveryDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Buyer" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProductionType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Brand" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Season" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TargetCuttingDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="GroupComment" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="OperationCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ProductUnitPrice" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="Currency" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="WarehouseReceivingDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Division" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Department" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubDepartment" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Category" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Class" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SASTADetailList" type="tns:ArrayOfSosSASTADetail" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfSosSASDetail">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SosSASDetail" nillable="true" type="tns:SosSASDetail" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SosSASDetail">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Colour" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ColourName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ItemSize" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CuQuantity" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Leg" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfSosSASTADetail">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SosSASTADetail" nillable="true" type="tns:SosSASTADetail" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SosSASTADetail">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="JobOrderCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="LeadNo" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="LeadName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TargetDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="RealisedDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="RevisedDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="DoColourBreakdown" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReadOnly" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Priority" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="AdditionalDayQty" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DoOldDateEntrance" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="Colour" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="KotonSosDoImportSASPostResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KotonSosDoImportSASPostResult" type="tns:SosResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KotonSosCuttingRequestList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Username_" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password_" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KotonSosCuttingRequestListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KotonSosCuttingRequestListResult" type="tns:ArrayOfSosCuttingRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSosCuttingRequest">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SosCuttingRequest" nillable="true" type="tns:SosCuttingRequest" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SosCuttingRequest">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="DocumentID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="JobOrderID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Colour" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RequestDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="RequestBy" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="County" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="District" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressDetail" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="KotonSosCuttingRequestApprove">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CuttingRequestApprove_" type="tns:SosCuttingRequestApprove" />
+            <s:element minOccurs="0" maxOccurs="1" name="Username_" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password_" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SosCuttingRequestApprove">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="DocumentID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Status" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ApprovalDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReasonCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReasonDescription" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="KotonSosCuttingRequestApproveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KotonSosCuttingRequestApproveResult" type="tns:SosResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KotonSosCuttingCancelRequestList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Username_" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password_" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KotonSosCuttingCancelRequestListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KotonSosCuttingCancelRequestListResult" type="tns:ArrayOfSosCuttingCancelRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSosCuttingCancelRequest">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SosCuttingCancelRequest" nillable="true" type="tns:SosCuttingCancelRequest" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SosCuttingCancelRequest">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="DocumentID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="JobOrderID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Colour" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RequestDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="RequestBy" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReasonCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReasonDescription" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="KotonSosCuttingCancelRequestApprove">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="CuttingCancelRequestApprove_" type="tns:SosCuttingCancelRequestApprove" />
+            <s:element minOccurs="0" maxOccurs="1" name="Username_" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password_" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SosCuttingCancelRequestApprove">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="DocumentID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Status" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ApprovalDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReasonCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReasonDescription" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="KotonSosCuttingCancelRequestApproveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KotonSosCuttingCancelRequestApproveResult" type="tns:SosResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KotonSosPAFRequestList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Username_" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password_" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KotonSosPAFRequestListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KotonSosPAFRequestListResult" type="tns:ArrayOfSosPAFRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSosPAFRequest">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SosPAFRequest" nillable="true" type="tns:SosPAFRequest" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SosPAFRequest">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="DocumentID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="JobOrderID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Colour" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ColourApproveStatus" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="RequestDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="RequestBy" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="KotonSosPAFRequestApprove">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="PAFRequestApprove_" type="tns:SosPAFRequestApprove" />
+            <s:element minOccurs="0" maxOccurs="1" name="Username_" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password_" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SosPAFRequestApprove">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="DocumentID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Status" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ApprovalDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReasonCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReasonDescription" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="KotonSosPAFRequestApproveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KotonSosPAFRequestApproveResult" type="tns:SosResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KotonSosDoImportPAFPost">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SosPaf_" type="tns:ArrayOfSosPAF" />
+            <s:element minOccurs="0" maxOccurs="1" name="Username_" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password_" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSosPAF">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SosPAF" nillable="true" type="tns:SosPAF" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SosPAF">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SosAsortedDetail" type="tns:ArrayOfSosAsortedDetail" />
+          <s:element minOccurs="0" maxOccurs="1" name="DocumentID" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PAFDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="JobOrderID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Model" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DestinationPort" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DistributionCenter" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Colour" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Leg" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ShopNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ShopName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PackingType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="GroupType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Size" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AssormentLotQuantity" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="AssortyPackedQuantity" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalQuantity" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProductCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PackageType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReferenceCode" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfSosAsortedDetail">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SosAsortedDetail" nillable="true" type="tns:SosAsortedDetail" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SosAsortedDetail">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="Size" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="UnitQuantity" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProductCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Leg" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="KotonSosDoImportPAFPostResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KotonSosDoImportPAFPostResult" type="tns:SosResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KotonSosShipmentPreRequestList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Username_" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password_" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KotonSosShipmentPreRequestListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KotonSosShipmentPreRequestListResult" type="tns:ArrayOfSosShipmentPreRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSosShipmentPreRequest">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SosShipmentPreRequest" nillable="true" type="tns:SosShipmentPreRequest" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SosShipmentPreRequest">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SosShipmentPreRequestDetail" type="tns:ArrayOfSosShipmentPreRequestDetail" />
+          <s:element minOccurs="1" maxOccurs="1" name="DocumentID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ShipmentNo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Status" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="RequestDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="RequestBy" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="City" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="County" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="District" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AddressDetail" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfSosShipmentPreRequestDetail">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SosShipmentPreRequestDetail" nillable="true" type="tns:SosShipmentPreRequestDetail" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SosShipmentPreRequestDetail">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="DocumentID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="JobOrderCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Colour" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="CuQuantity" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PafQuantity" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="UnitNetWeight" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="NAApprovalStatus" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="OthersApprovalStatus" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="KotonSosShipmentPreRequestApprove">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SosShipmentPreRequestApproves_" type="tns:SosShipmentPreRequestApprove" />
+            <s:element minOccurs="0" maxOccurs="1" name="Username_" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password_" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SosShipmentPreRequestApprove">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ApproveDetails" type="tns:ArrayOfSosShipmentPreRequestApproveDetail" />
+          <s:element minOccurs="1" maxOccurs="1" name="DocumentID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Status" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ApprovalDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="ShipmentNo" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfSosShipmentPreRequestApproveDetail">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SosShipmentPreRequestApproveDetail" nillable="true" type="tns:SosShipmentPreRequestApproveDetail" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SosShipmentPreRequestApproveDetail">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="DocumentID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="JobOrderCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Colour" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Status" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ApprovalDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReasonCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReasonDescription" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="KotonSosShipmentPreRequestApproveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KotonSosShipmentPreRequestApproveResult" type="tns:SosResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KotonSosShipmentRequestList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Username_" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password_" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KotonSosShipmentRequestListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KotonSosShipmentRequestListResult" type="tns:ArrayOfSosShipmentRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSosShipmentRequest">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SosShipmentRequest" nillable="true" type="tns:SosShipmentRequest" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SosShipmentRequest">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SosShipmentRequestDetails" type="tns:ArrayOfSosShipmentRequestDetail" />
+          <s:element minOccurs="1" maxOccurs="1" name="DocumentID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ASN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DestinationPort" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TotalPackedQuantity" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DeliveryNote" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PlateNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Note" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RequestDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="RequestBy" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfSosShipmentRequestDetail">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SosShipmentRequestDetail" nillable="true" type="tns:SosShipmentRequestDetail" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SosShipmentRequestDetail">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="JobOrderID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Model" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Colour" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="KotonSosShipmentRequestApprove">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SosShipmentPreRequestApprove_" type="tns:SosShipmentRequestApprove" />
+            <s:element minOccurs="0" maxOccurs="1" name="Username_" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password_" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SosShipmentRequestApprove">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="DocumentID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Status" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ApprovalDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReasonCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReasonDescription" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="KotonSosShipmentRequestApproveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KotonSosShipmentRequestApproveResult" type="tns:SosResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KotonSosPAFCancelRequestList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Username_" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password_" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KotonSosPAFCancelRequestListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KotonSosPAFCancelRequestListResult" type="tns:ArrayOfSosPAFCancelRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSosPAFCancelRequest">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SosPAFCancelRequest" nillable="true" type="tns:SosPAFCancelRequest" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SosPAFCancelRequest">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="DocumentID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="JobOrderID" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Colour" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ColourApproveStatus" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="RequestDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="RequestBy" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReasonCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReasonDescription" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="KotonSosPAFCancelRequestApprove">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Approve_" type="tns:SosPAFCancelRequestApprove" />
+            <s:element minOccurs="0" maxOccurs="1" name="Username_" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password_" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SosPAFCancelRequestApprove">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="DocumentID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Status" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ApprovalDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReasonCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReasonDescription" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="KotonSosPAFCancelRequestApproveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KotonSosPAFCancelRequestApproveResult" type="tns:SosResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KotonSosShipmentPreRequestCancelList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Username_" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password_" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KotonSosShipmentPreRequestCancelListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KotonSosShipmentPreRequestCancelListResult" type="tns:ArrayOfSosShipmentPreRequestCancel" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSosShipmentPreRequestCancel">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SosShipmentPreRequestCancel" nillable="true" type="tns:SosShipmentPreRequestCancel" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SosShipmentPreRequestCancel">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SosShipmentPreRequestCancelDetail" type="tns:ArrayOfSosShipmentPreRequestCancelDetail" />
+          <s:element minOccurs="1" maxOccurs="1" name="DocumentID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ShipmentNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReasonCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReasonDescription" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Status" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="RequestDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="RequestBy" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfSosShipmentPreRequestCancelDetail">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SosShipmentPreRequestCancelDetail" nillable="true" type="tns:SosShipmentPreRequestCancelDetail" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SosShipmentPreRequestCancelDetail">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="DocumentID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="JobOrderCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Colour" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Status" nillable="true" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="KotonSosShipmentPreRequestCancelApprove">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SosShipmentPreRequestCancelApproves_" type="tns:SosShipmentPreRequestCancelApprove" />
+            <s:element minOccurs="0" maxOccurs="1" name="Username_" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password_" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SosShipmentPreRequestCancelApprove">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SosShipmentPreRequestCancelApproveDetails" type="tns:ArrayOfSosShipmentPreRequestCancelApproveDetail" />
+          <s:element minOccurs="0" maxOccurs="1" name="ShipmentNo" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="DocumentID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReasonCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReasonDescription" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Status" nillable="true" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="RequestDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="RequestBy" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfSosShipmentPreRequestCancelApproveDetail">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SosShipmentPreRequestCancelApproveDetail" nillable="true" type="tns:SosShipmentPreRequestCancelApproveDetail" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SosShipmentPreRequestCancelApproveDetail">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="DocumentID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="JobOrderCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Colour" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Status" nillable="true" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="KotonSosShipmentPreRequestCancelApproveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KotonSosShipmentPreRequestCancelApproveResult" type="tns:SosResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KotonSosShipmentApprovalRequestCancelList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Username_" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password_" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KotonSosShipmentApprovalRequestCancelListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KotonSosShipmentApprovalRequestCancelListResult" type="tns:ArrayOfSosShipmentApprovalRequestCancel" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSosShipmentApprovalRequestCancel">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SosShipmentApprovalRequestCancel" nillable="true" type="tns:SosShipmentApprovalRequestCancel" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SosShipmentApprovalRequestCancel">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="DocumentID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ASN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DestinationPort" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TotalPackedQuantity" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ExpectedDeliveryDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExpectedDeliveryPeriod" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SupplierLocation" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReasonCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReasonDescription" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RequestDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="RequestBy" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="KotonSosShipmentApprovalRequestCancelApprove">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SosShipmentApprovalRequestCancelApprove_" type="tns:SosShipmentApprovalRequestCancelApprove" />
+            <s:element minOccurs="0" maxOccurs="1" name="Username_" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password_" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SosShipmentApprovalRequestCancelApprove">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="DocumentID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ASN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ImportFileNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ForwarderName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Status" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ApprovalDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReasonCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReasonDescription" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="KotonSosShipmentApprovalRequestCancelApproveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KotonSosShipmentApprovalRequestCancelApproveResult" type="tns:SosResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KotonSosShipmentRequestCancelList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Username_" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password_" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KotonSosShipmentRequestCancelListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KotonSosShipmentRequestCancelListResult" type="tns:ArrayOfSosShipmentRequestCancel" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSosShipmentRequestCancel">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SosShipmentRequestCancel" nillable="true" type="tns:SosShipmentRequestCancel" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SosShipmentRequestCancel">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="DocumentID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ASN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DestinationPort" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TotalPackedQuantity" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DeliveryNote" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PlateNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Note" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReasonCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReasonDescription" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RequestDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="RequestBy" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="KotonSosShipmentRequestCancelApprove">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SosShipmentRequestCancelApprove_" type="tns:SosShipmentRequestCancelApprove" />
+            <s:element minOccurs="0" maxOccurs="1" name="Username_" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password_" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SosShipmentRequestCancelApprove">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="DocumentID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Status" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ApprovalDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReasonCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReasonDescription" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="KotonSosShipmentRequestCancelApproveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KotonSosShipmentRequestCancelApproveResult" type="tns:SosResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KotonSosShipmentApprovalRequestList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Username_" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password_" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KotonSosShipmentApprovalRequestListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KotonSosShipmentApprovalRequestListResult" type="tns:ArrayOfSosShipmentApprovalRequest" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSosShipmentApprovalRequest">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SosShipmentApprovalRequest" nillable="true" type="tns:SosShipmentApprovalRequest" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SosShipmentApprovalRequest">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SosShipmentApprovalRequestDetail" type="tns:ArrayOfSosShipmentApprovalRequestDetail" />
+          <s:element minOccurs="1" maxOccurs="1" name="DocumentID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ASN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DestinationPort" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalBoxQuantity" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalPackedQuantity" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ExpectedDeliveryDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="ExpectedDeliveryPeriod" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SupplierLocation" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RequestDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="RequestBy" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfSosShipmentApprovalRequestDetail">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SosShipmentApprovalRequestDetail" nillable="true" type="tns:SosShipmentApprovalRequestDetail" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SosShipmentApprovalRequestDetail">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="ProductCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PackageType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AsortedCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="UnitQuantity" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="JobOrderCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalBoxQuantity" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalPackedQuantity" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TotalVolume" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="KotonSosShipmentApprovalRequestApprove">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Approve_" type="tns:SosShipmentApprovalRequestApprove" />
+            <s:element minOccurs="0" maxOccurs="1" name="Username_" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password_" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SosShipmentApprovalRequestApprove">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="DocumentID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ASN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="MilestoneTemp" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransportType" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ImportFileNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ForwarderName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="Status" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="RevisedDeliveryDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReservationNumber" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="RevisedTimePeriod" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReasonCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReasonDescription" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="KotonSosShipmentApprovalRequestApproveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KotonSosShipmentApprovalRequestApproveResult" type="tns:SosResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KotonDoExportCPRealizationDateList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Username_" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password_" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KotonDoExportCPRealizationDateListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KotonDoExportCPRealizationDateListResult" type="tns:ArrayOfSosCPRealizationDate" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSosCPRealizationDate">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SosCPRealizationDate" nillable="true" type="tns:SosCPRealizationDate" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SosCPRealizationDate">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="DocumentID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="JobOrderNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ApprovalID" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="RealizationDate" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="KotonDoExportCPRealizationDateApprove">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SosCPRealizationDateApprove_" type="tns:SosCPRealizationDateApprove" />
+            <s:element minOccurs="0" maxOccurs="1" name="Username_" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password_" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SosCPRealizationDateApprove">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="DocumentID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ApprovalDate" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="KotonDoExportCPRealizationDateApproveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KotonDoExportCPRealizationDateApproveResult" type="tns:SosResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ASNNo">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Username_" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password_" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ASNNo_" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ASNNoResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ASNNoResult" type="tns:ArrayOfSosAsnPackage" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSosAsnPackage">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SosAsnPackage" nillable="true" type="tns:SosAsnPackage" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SosAsnPackage">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="SosAsnPackageDetail" type="tns:ArrayOfSosAsnPackageDetail" />
+          <s:element minOccurs="0" maxOccurs="1" name="ASNNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SupplierCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DestinationPort" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DistCenter" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TypeColorCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ISXDock" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="XDockCustomerCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PackingGroup" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PackageDimension" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PackageWidth" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PackageLength" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PackageHeight" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PackageTare" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PackageNetWeight" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PackageGrossWeight" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PackageSeriNo" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="PackageType" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="PackageNo" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfSosAsnPackageDetail">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SosAsnPackageDetail" nillable="true" type="tns:SosAsnPackageDetail" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SosAsnPackageDetail">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="JobOrder" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ShopNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="PackageNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ProductCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="AssortedCode" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="AssortmentGroupQty" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="UnitQuantity" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="UnitPrice" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="DescriptionOfGoods" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ModelCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ColourName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ColourCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Size" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ProductUnitPrice" type="s:decimal" />
+          <s:element minOccurs="0" maxOccurs="1" name="Currency" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Brand" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="PlannedDeliveryDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="ShopName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ExpectedShipmentDate" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="WarehouseReceivingDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="LineCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Division" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Department" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SubDepartment" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Category" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Class" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="ASNNoWithJobOrder">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Username_" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password_" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ASNNo_" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="JobOrderNo_" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ASNNoWithJobOrderResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ASNNoWithJobOrderResult" type="tns:ArrayOfSosAsnPackage" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ASNNoWithJobOrderAndColour">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Username_" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password_" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ASNNo_" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="JobOrderNo_" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="ColourCode_" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="ASNNoWithJobOrderAndColourResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ASNNoWithJobOrderAndColourResult" type="tns:ArrayOfSosAsnPackage" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KotonSosDoExportImpExpShippedList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Username_" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password_" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KotonSosDoExportImpExpShippedListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KotonSosDoExportImpExpShippedListResult" type="tns:ArrayOfImpExpShipped" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfImpExpShipped">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="ImpExpShipped" nillable="true" type="tns:ImpExpShipped" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ImpExpShipped">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="HeaderID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="DocumentID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="ASN" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="DestinationPort" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SupplierCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SupplierName" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ImportFolderNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReservationNo" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ForwarderName" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReservationDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="MilestoneTemp" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="TransportType" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="ApprovedShipmentDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Country" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="ASNPackageList" type="tns:ArrayOfSosAsnPackage" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="KotonSosDoExportImpExpShippedApprove">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Approve_" type="tns:ImpExpShippedApprove" />
+            <s:element minOccurs="0" maxOccurs="1" name="Username_" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password_" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ImpExpShippedApprove">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="DocumentID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ApprovalDate" type="s:dateTime" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="KotonSosDoExportImpExpShippedApproveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KotonSosDoExportImpExpShippedApproveResult" type="tns:SosResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KotonSosDoImportImpExpPost">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="BoxInfo_" type="tns:ImpExpShipped" />
+            <s:element minOccurs="0" maxOccurs="1" name="Username_" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password_" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KotonSosDoImportImpExpPostResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KotonSosDoImportImpExpPostResult" type="tns:SosResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KotonSosDoImportSASTAReviseDatePost">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="ReviseDate_" type="tns:SosSASTAReviseDate" />
+            <s:element minOccurs="0" maxOccurs="1" name="Username_" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password_" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SosSASTAReviseDate">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="1" name="JobOrderCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="Colour" type="s:string" />
+          <s:element minOccurs="1" maxOccurs="1" name="LeadNo" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReviseDate" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="ReviseReason" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="KotonSosDoImportSASTAReviseDatePostResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KotonSosDoImportSASTAReviseDatePostResult" type="tns:SosResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KotonSosExportSASTABackList">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="Username_" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password_" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:element name="KotonSosExportSASTABackListResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KotonSosExportSASTABackListResult" type="tns:ArrayOfSosSASTABack" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="ArrayOfSosSASTABack">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SosSASTABack" nillable="true" type="tns:SosSASTABack" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SosSASTABack">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="DocumentID" type="s:int" />
+          <s:element minOccurs="0" maxOccurs="1" name="JobOrderCode" type="s:string" />
+          <s:element minOccurs="0" maxOccurs="1" name="SosSASTABackDetail" type="tns:ArrayOfSosSASTABackDetail" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="ArrayOfSosSASTABackDetail">
+        <s:sequence>
+          <s:element minOccurs="0" maxOccurs="unbounded" name="SosSASTABackDetail" nillable="true" type="tns:SosSASTABackDetail" />
+        </s:sequence>
+      </s:complexType>
+      <s:complexType name="SosSASTABackDetail">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="ID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="LeadNo" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="TargetDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="RealisedDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="1" maxOccurs="1" name="ReviseDate" nillable="true" type="s:dateTime" />
+          <s:element minOccurs="0" maxOccurs="1" name="Colour" type="s:string" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="KotonSosExportSASTABackApprove">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="SASTAApprove_" type="tns:SosSASTABackApprove" />
+            <s:element minOccurs="0" maxOccurs="1" name="Username_" type="s:string" />
+            <s:element minOccurs="0" maxOccurs="1" name="Password_" type="s:string" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+      <s:complexType name="SosSASTABackApprove">
+        <s:sequence>
+          <s:element minOccurs="1" maxOccurs="1" name="DocumentID" type="s:int" />
+          <s:element minOccurs="1" maxOccurs="1" name="Status" type="s:int" />
+        </s:sequence>
+      </s:complexType>
+      <s:element name="KotonSosExportSASTABackApproveResponse">
+        <s:complexType>
+          <s:sequence>
+            <s:element minOccurs="0" maxOccurs="1" name="KotonSosExportSASTABackApproveResult" type="tns:SosResult" />
+          </s:sequence>
+        </s:complexType>
+      </s:element>
+    </s:schema>
+  </wsdl:types>
+  <wsdl:message name="KotonSosDoImportProductPostSoapIn">
+    <wsdl:part name="parameters" element="tns:KotonSosDoImportProductPost" />
+  </wsdl:message>
+  <wsdl:message name="KotonSosDoImportProductPostSoapOut">
+    <wsdl:part name="parameters" element="tns:KotonSosDoImportProductPostResponse" />
+  </wsdl:message>
+  <wsdl:message name="KotonSosDoImportPartyPostSoapIn">
+    <wsdl:part name="parameters" element="tns:KotonSosDoImportPartyPost" />
+  </wsdl:message>
+  <wsdl:message name="KotonSosDoImportPartyPostSoapOut">
+    <wsdl:part name="parameters" element="tns:KotonSosDoImportPartyPostResponse" />
+  </wsdl:message>
+  <wsdl:message name="KotonSosDoImportSASPostSoapIn">
+    <wsdl:part name="parameters" element="tns:KotonSosDoImportSASPost" />
+  </wsdl:message>
+  <wsdl:message name="KotonSosDoImportSASPostSoapOut">
+    <wsdl:part name="parameters" element="tns:KotonSosDoImportSASPostResponse" />
+  </wsdl:message>
+  <wsdl:message name="KotonSosCuttingRequestListSoapIn">
+    <wsdl:part name="parameters" element="tns:KotonSosCuttingRequestList" />
+  </wsdl:message>
+  <wsdl:message name="KotonSosCuttingRequestListSoapOut">
+    <wsdl:part name="parameters" element="tns:KotonSosCuttingRequestListResponse" />
+  </wsdl:message>
+  <wsdl:message name="KotonSosCuttingRequestApproveSoapIn">
+    <wsdl:part name="parameters" element="tns:KotonSosCuttingRequestApprove" />
+  </wsdl:message>
+  <wsdl:message name="KotonSosCuttingRequestApproveSoapOut">
+    <wsdl:part name="parameters" element="tns:KotonSosCuttingRequestApproveResponse" />
+  </wsdl:message>
+  <wsdl:message name="KotonSosCuttingCancelRequestListSoapIn">
+    <wsdl:part name="parameters" element="tns:KotonSosCuttingCancelRequestList" />
+  </wsdl:message>
+  <wsdl:message name="KotonSosCuttingCancelRequestListSoapOut">
+    <wsdl:part name="parameters" element="tns:KotonSosCuttingCancelRequestListResponse" />
+  </wsdl:message>
+  <wsdl:message name="KotonSosCuttingCancelRequestApproveSoapIn">
+    <wsdl:part name="parameters" element="tns:KotonSosCuttingCancelRequestApprove" />
+  </wsdl:message>
+  <wsdl:message name="KotonSosCuttingCancelRequestApproveSoapOut">
+    <wsdl:part name="parameters" element="tns:KotonSosCuttingCancelRequestApproveResponse" />
+  </wsdl:message>
+  <wsdl:message name="KotonSosPAFRequestListSoapIn">
+    <wsdl:part name="parameters" element="tns:KotonSosPAFRequestList" />
+  </wsdl:message>
+  <wsdl:message name="KotonSosPAFRequestListSoapOut">
+    <wsdl:part name="parameters" element="tns:KotonSosPAFRequestListResponse" />
+  </wsdl:message>
+  <wsdl:message name="KotonSosPAFRequestApproveSoapIn">
+    <wsdl:part name="parameters" element="tns:KotonSosPAFRequestApprove" />
+  </wsdl:message>
+  <wsdl:message name="KotonSosPAFRequestApproveSoapOut">
+    <wsdl:part name="parameters" element="tns:KotonSosPAFRequestApproveResponse" />
+  </wsdl:message>
+  <wsdl:message name="KotonSosDoImportPAFPostSoapIn">
+    <wsdl:part name="parameters" element="tns:KotonSosDoImportPAFPost" />
+  </wsdl:message>
+  <wsdl:message name="KotonSosDoImportPAFPostSoapOut">
+    <wsdl:part name="parameters" element="tns:KotonSosDoImportPAFPostResponse" />
+  </wsdl:message>
+  <wsdl:message name="KotonSosShipmentPreRequestListSoapIn">
+    <wsdl:part name="parameters" element="tns:KotonSosShipmentPreRequestList" />
+  </wsdl:message>
+  <wsdl:message name="KotonSosShipmentPreRequestListSoapOut">
+    <wsdl:part name="parameters" element="tns:KotonSosShipmentPreRequestListResponse" />
+  </wsdl:message>
+  <wsdl:message name="KotonSosShipmentPreRequestApproveSoapIn">
+    <wsdl:part name="parameters" element="tns:KotonSosShipmentPreRequestApprove" />
+  </wsdl:message>
+  <wsdl:message name="KotonSosShipmentPreRequestApproveSoapOut">
+    <wsdl:part name="parameters" element="tns:KotonSosShipmentPreRequestApproveResponse" />
+  </wsdl:message>
+  <wsdl:message name="KotonSosShipmentRequestListSoapIn">
+    <wsdl:part name="parameters" element="tns:KotonSosShipmentRequestList" />
+  </wsdl:message>
+  <wsdl:message name="KotonSosShipmentRequestListSoapOut">
+    <wsdl:part name="parameters" element="tns:KotonSosShipmentRequestListResponse" />
+  </wsdl:message>
+  <wsdl:message name="KotonSosShipmentRequestApproveSoapIn">
+    <wsdl:part name="parameters" element="tns:KotonSosShipmentRequestApprove" />
+  </wsdl:message>
+  <wsdl:message name="KotonSosShipmentRequestApproveSoapOut">
+    <wsdl:part name="parameters" element="tns:KotonSosShipmentRequestApproveResponse" />
+  </wsdl:message>
+  <wsdl:message name="KotonSosPAFCancelRequestListSoapIn">
+    <wsdl:part name="parameters" element="tns:KotonSosPAFCancelRequestList" />
+  </wsdl:message>
+  <wsdl:message name="KotonSosPAFCancelRequestListSoapOut">
+    <wsdl:part name="parameters" element="tns:KotonSosPAFCancelRequestListResponse" />
+  </wsdl:message>
+  <wsdl:message name="KotonSosPAFCancelRequestApproveSoapIn">
+    <wsdl:part name="parameters" element="tns:KotonSosPAFCancelRequestApprove" />
+  </wsdl:message>
+  <wsdl:message name="KotonSosPAFCancelRequestApproveSoapOut">
+    <wsdl:part name="parameters" element="tns:KotonSosPAFCancelRequestApproveResponse" />
+  </wsdl:message>
+  <wsdl:message name="KotonSosShipmentPreRequestCancelListSoapIn">
+    <wsdl:part name="parameters" element="tns:KotonSosShipmentPreRequestCancelList" />
+  </wsdl:message>
+  <wsdl:message name="KotonSosShipmentPreRequestCancelListSoapOut">
+    <wsdl:part name="parameters" element="tns:KotonSosShipmentPreRequestCancelListResponse" />
+  </wsdl:message>
+  <wsdl:message name="KotonSosShipmentPreRequestCancelApproveSoapIn">
+    <wsdl:part name="parameters" element="tns:KotonSosShipmentPreRequestCancelApprove" />
+  </wsdl:message>
+  <wsdl:message name="KotonSosShipmentPreRequestCancelApproveSoapOut">
+    <wsdl:part name="parameters" element="tns:KotonSosShipmentPreRequestCancelApproveResponse" />
+  </wsdl:message>
+  <wsdl:message name="KotonSosShipmentApprovalRequestCancelListSoapIn">
+    <wsdl:part name="parameters" element="tns:KotonSosShipmentApprovalRequestCancelList" />
+  </wsdl:message>
+  <wsdl:message name="KotonSosShipmentApprovalRequestCancelListSoapOut">
+    <wsdl:part name="parameters" element="tns:KotonSosShipmentApprovalRequestCancelListResponse" />
+  </wsdl:message>
+  <wsdl:message name="KotonSosShipmentApprovalRequestCancelApproveSoapIn">
+    <wsdl:part name="parameters" element="tns:KotonSosShipmentApprovalRequestCancelApprove" />
+  </wsdl:message>
+  <wsdl:message name="KotonSosShipmentApprovalRequestCancelApproveSoapOut">
+    <wsdl:part name="parameters" element="tns:KotonSosShipmentApprovalRequestCancelApproveResponse" />
+  </wsdl:message>
+  <wsdl:message name="KotonSosShipmentRequestCancelListSoapIn">
+    <wsdl:part name="parameters" element="tns:KotonSosShipmentRequestCancelList" />
+  </wsdl:message>
+  <wsdl:message name="KotonSosShipmentRequestCancelListSoapOut">
+    <wsdl:part name="parameters" element="tns:KotonSosShipmentRequestCancelListResponse" />
+  </wsdl:message>
+  <wsdl:message name="KotonSosShipmentRequestCancelApproveSoapIn">
+    <wsdl:part name="parameters" element="tns:KotonSosShipmentRequestCancelApprove" />
+  </wsdl:message>
+  <wsdl:message name="KotonSosShipmentRequestCancelApproveSoapOut">
+    <wsdl:part name="parameters" element="tns:KotonSosShipmentRequestCancelApproveResponse" />
+  </wsdl:message>
+  <wsdl:message name="KotonSosShipmentApprovalRequestListSoapIn">
+    <wsdl:part name="parameters" element="tns:KotonSosShipmentApprovalRequestList" />
+  </wsdl:message>
+  <wsdl:message name="KotonSosShipmentApprovalRequestListSoapOut">
+    <wsdl:part name="parameters" element="tns:KotonSosShipmentApprovalRequestListResponse" />
+  </wsdl:message>
+  <wsdl:message name="KotonSosShipmentApprovalRequestApproveSoapIn">
+    <wsdl:part name="parameters" element="tns:KotonSosShipmentApprovalRequestApprove" />
+  </wsdl:message>
+  <wsdl:message name="KotonSosShipmentApprovalRequestApproveSoapOut">
+    <wsdl:part name="parameters" element="tns:KotonSosShipmentApprovalRequestApproveResponse" />
+  </wsdl:message>
+  <wsdl:message name="KotonDoExportCPRealizationDateListSoapIn">
+    <wsdl:part name="parameters" element="tns:KotonDoExportCPRealizationDateList" />
+  </wsdl:message>
+  <wsdl:message name="KotonDoExportCPRealizationDateListSoapOut">
+    <wsdl:part name="parameters" element="tns:KotonDoExportCPRealizationDateListResponse" />
+  </wsdl:message>
+  <wsdl:message name="KotonDoExportCPRealizationDateApproveSoapIn">
+    <wsdl:part name="parameters" element="tns:KotonDoExportCPRealizationDateApprove" />
+  </wsdl:message>
+  <wsdl:message name="KotonDoExportCPRealizationDateApproveSoapOut">
+    <wsdl:part name="parameters" element="tns:KotonDoExportCPRealizationDateApproveResponse" />
+  </wsdl:message>
+  <wsdl:message name="ASNNoSoapIn">
+    <wsdl:part name="parameters" element="tns:ASNNo" />
+  </wsdl:message>
+  <wsdl:message name="ASNNoSoapOut">
+    <wsdl:part name="parameters" element="tns:ASNNoResponse" />
+  </wsdl:message>
+  <wsdl:message name="ASNNoWithJobOrderSoapIn">
+    <wsdl:part name="parameters" element="tns:ASNNoWithJobOrder" />
+  </wsdl:message>
+  <wsdl:message name="ASNNoWithJobOrderSoapOut">
+    <wsdl:part name="parameters" element="tns:ASNNoWithJobOrderResponse" />
+  </wsdl:message>
+  <wsdl:message name="ASNNoWithJobOrderAndColourSoapIn">
+    <wsdl:part name="parameters" element="tns:ASNNoWithJobOrderAndColour" />
+  </wsdl:message>
+  <wsdl:message name="ASNNoWithJobOrderAndColourSoapOut">
+    <wsdl:part name="parameters" element="tns:ASNNoWithJobOrderAndColourResponse" />
+  </wsdl:message>
+  <wsdl:message name="KotonSosDoExportImpExpShippedListSoapIn">
+    <wsdl:part name="parameters" element="tns:KotonSosDoExportImpExpShippedList" />
+  </wsdl:message>
+  <wsdl:message name="KotonSosDoExportImpExpShippedListSoapOut">
+    <wsdl:part name="parameters" element="tns:KotonSosDoExportImpExpShippedListResponse" />
+  </wsdl:message>
+  <wsdl:message name="KotonSosDoExportImpExpShippedApproveSoapIn">
+    <wsdl:part name="parameters" element="tns:KotonSosDoExportImpExpShippedApprove" />
+  </wsdl:message>
+  <wsdl:message name="KotonSosDoExportImpExpShippedApproveSoapOut">
+    <wsdl:part name="parameters" element="tns:KotonSosDoExportImpExpShippedApproveResponse" />
+  </wsdl:message>
+  <wsdl:message name="KotonSosDoImportImpExpPostSoapIn">
+    <wsdl:part name="parameters" element="tns:KotonSosDoImportImpExpPost" />
+  </wsdl:message>
+  <wsdl:message name="KotonSosDoImportImpExpPostSoapOut">
+    <wsdl:part name="parameters" element="tns:KotonSosDoImportImpExpPostResponse" />
+  </wsdl:message>
+  <wsdl:message name="KotonSosDoImportSASTAReviseDatePostSoapIn">
+    <wsdl:part name="parameters" element="tns:KotonSosDoImportSASTAReviseDatePost" />
+  </wsdl:message>
+  <wsdl:message name="KotonSosDoImportSASTAReviseDatePostSoapOut">
+    <wsdl:part name="parameters" element="tns:KotonSosDoImportSASTAReviseDatePostResponse" />
+  </wsdl:message>
+  <wsdl:message name="KotonSosExportSASTABackListSoapIn">
+    <wsdl:part name="parameters" element="tns:KotonSosExportSASTABackList" />
+  </wsdl:message>
+  <wsdl:message name="KotonSosExportSASTABackListSoapOut">
+    <wsdl:part name="parameters" element="tns:KotonSosExportSASTABackListResponse" />
+  </wsdl:message>
+  <wsdl:message name="KotonSosExportSASTABackApproveSoapIn">
+    <wsdl:part name="parameters" element="tns:KotonSosExportSASTABackApprove" />
+  </wsdl:message>
+  <wsdl:message name="KotonSosExportSASTABackApproveSoapOut">
+    <wsdl:part name="parameters" element="tns:KotonSosExportSASTABackApproveResponse" />
+  </wsdl:message>
+  <wsdl:portType name="LOSosIntegrationCustomerKotonSoap">
+    <wsdl:operation name="KotonSosDoImportProductPost">
+      <wsdl:input message="tns:KotonSosDoImportProductPostSoapIn" />
+      <wsdl:output message="tns:KotonSosDoImportProductPostSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosDoImportPartyPost">
+      <wsdl:input message="tns:KotonSosDoImportPartyPostSoapIn" />
+      <wsdl:output message="tns:KotonSosDoImportPartyPostSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosDoImportSASPost">
+      <wsdl:input message="tns:KotonSosDoImportSASPostSoapIn" />
+      <wsdl:output message="tns:KotonSosDoImportSASPostSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosCuttingRequestList">
+      <wsdl:input message="tns:KotonSosCuttingRequestListSoapIn" />
+      <wsdl:output message="tns:KotonSosCuttingRequestListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosCuttingRequestApprove">
+      <wsdl:input message="tns:KotonSosCuttingRequestApproveSoapIn" />
+      <wsdl:output message="tns:KotonSosCuttingRequestApproveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosCuttingCancelRequestList">
+      <wsdl:input message="tns:KotonSosCuttingCancelRequestListSoapIn" />
+      <wsdl:output message="tns:KotonSosCuttingCancelRequestListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosCuttingCancelRequestApprove">
+      <wsdl:input message="tns:KotonSosCuttingCancelRequestApproveSoapIn" />
+      <wsdl:output message="tns:KotonSosCuttingCancelRequestApproveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosPAFRequestList">
+      <wsdl:input message="tns:KotonSosPAFRequestListSoapIn" />
+      <wsdl:output message="tns:KotonSosPAFRequestListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosPAFRequestApprove">
+      <wsdl:input message="tns:KotonSosPAFRequestApproveSoapIn" />
+      <wsdl:output message="tns:KotonSosPAFRequestApproveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosDoImportPAFPost">
+      <wsdl:input message="tns:KotonSosDoImportPAFPostSoapIn" />
+      <wsdl:output message="tns:KotonSosDoImportPAFPostSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosShipmentPreRequestList">
+      <wsdl:input message="tns:KotonSosShipmentPreRequestListSoapIn" />
+      <wsdl:output message="tns:KotonSosShipmentPreRequestListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosShipmentPreRequestApprove">
+      <wsdl:input message="tns:KotonSosShipmentPreRequestApproveSoapIn" />
+      <wsdl:output message="tns:KotonSosShipmentPreRequestApproveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosShipmentRequestList">
+      <wsdl:input message="tns:KotonSosShipmentRequestListSoapIn" />
+      <wsdl:output message="tns:KotonSosShipmentRequestListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosShipmentRequestApprove">
+      <wsdl:input message="tns:KotonSosShipmentRequestApproveSoapIn" />
+      <wsdl:output message="tns:KotonSosShipmentRequestApproveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosPAFCancelRequestList">
+      <wsdl:input message="tns:KotonSosPAFCancelRequestListSoapIn" />
+      <wsdl:output message="tns:KotonSosPAFCancelRequestListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosPAFCancelRequestApprove">
+      <wsdl:input message="tns:KotonSosPAFCancelRequestApproveSoapIn" />
+      <wsdl:output message="tns:KotonSosPAFCancelRequestApproveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosShipmentPreRequestCancelList">
+      <wsdl:input message="tns:KotonSosShipmentPreRequestCancelListSoapIn" />
+      <wsdl:output message="tns:KotonSosShipmentPreRequestCancelListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosShipmentPreRequestCancelApprove">
+      <wsdl:input message="tns:KotonSosShipmentPreRequestCancelApproveSoapIn" />
+      <wsdl:output message="tns:KotonSosShipmentPreRequestCancelApproveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosShipmentApprovalRequestCancelList">
+      <wsdl:input message="tns:KotonSosShipmentApprovalRequestCancelListSoapIn" />
+      <wsdl:output message="tns:KotonSosShipmentApprovalRequestCancelListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosShipmentApprovalRequestCancelApprove">
+      <wsdl:input message="tns:KotonSosShipmentApprovalRequestCancelApproveSoapIn" />
+      <wsdl:output message="tns:KotonSosShipmentApprovalRequestCancelApproveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosShipmentRequestCancelList">
+      <wsdl:input message="tns:KotonSosShipmentRequestCancelListSoapIn" />
+      <wsdl:output message="tns:KotonSosShipmentRequestCancelListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosShipmentRequestCancelApprove">
+      <wsdl:input message="tns:KotonSosShipmentRequestCancelApproveSoapIn" />
+      <wsdl:output message="tns:KotonSosShipmentRequestCancelApproveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosShipmentApprovalRequestList">
+      <wsdl:input message="tns:KotonSosShipmentApprovalRequestListSoapIn" />
+      <wsdl:output message="tns:KotonSosShipmentApprovalRequestListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosShipmentApprovalRequestApprove">
+      <wsdl:input message="tns:KotonSosShipmentApprovalRequestApproveSoapIn" />
+      <wsdl:output message="tns:KotonSosShipmentApprovalRequestApproveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KotonDoExportCPRealizationDateList">
+      <wsdl:input message="tns:KotonDoExportCPRealizationDateListSoapIn" />
+      <wsdl:output message="tns:KotonDoExportCPRealizationDateListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KotonDoExportCPRealizationDateApprove">
+      <wsdl:input message="tns:KotonDoExportCPRealizationDateApproveSoapIn" />
+      <wsdl:output message="tns:KotonDoExportCPRealizationDateApproveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosASNPackageGet">
+      <wsdl:input name="ASNNo" message="tns:ASNNoSoapIn" />
+      <wsdl:output name="ASNNo" message="tns:ASNNoSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosASNPackageGet">
+      <wsdl:input name="ASNNoWithJobOrder" message="tns:ASNNoWithJobOrderSoapIn" />
+      <wsdl:output name="ASNNoWithJobOrder" message="tns:ASNNoWithJobOrderSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosASNPackageGet">
+      <wsdl:input name="ASNNoWithJobOrderAndColour" message="tns:ASNNoWithJobOrderAndColourSoapIn" />
+      <wsdl:output name="ASNNoWithJobOrderAndColour" message="tns:ASNNoWithJobOrderAndColourSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosDoExportImpExpShippedList">
+      <wsdl:input message="tns:KotonSosDoExportImpExpShippedListSoapIn" />
+      <wsdl:output message="tns:KotonSosDoExportImpExpShippedListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosDoExportImpExpShippedApprove">
+      <wsdl:input message="tns:KotonSosDoExportImpExpShippedApproveSoapIn" />
+      <wsdl:output message="tns:KotonSosDoExportImpExpShippedApproveSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosDoImportImpExpPost">
+      <wsdl:input message="tns:KotonSosDoImportImpExpPostSoapIn" />
+      <wsdl:output message="tns:KotonSosDoImportImpExpPostSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosDoImportSASTAReviseDatePost">
+      <wsdl:input message="tns:KotonSosDoImportSASTAReviseDatePostSoapIn" />
+      <wsdl:output message="tns:KotonSosDoImportSASTAReviseDatePostSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosExportSASTABackList">
+      <wsdl:input message="tns:KotonSosExportSASTABackListSoapIn" />
+      <wsdl:output message="tns:KotonSosExportSASTABackListSoapOut" />
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosExportSASTABackApprove">
+      <wsdl:input message="tns:KotonSosExportSASTABackApproveSoapIn" />
+      <wsdl:output message="tns:KotonSosExportSASTABackApproveSoapOut" />
+    </wsdl:operation>
+  </wsdl:portType>
+  <wsdl:binding name="LOSosIntegrationCustomerKotonSoap" type="tns:LOSosIntegrationCustomerKotonSoap">
+    <soap:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="KotonSosDoImportProductPost">
+      <soap:operation soapAction="http://tempuri.org/KotonSosDoImportProductPost" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosDoImportPartyPost">
+      <soap:operation soapAction="http://tempuri.org/KotonSosDoImportPartyPost" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosDoImportSASPost">
+      <soap:operation soapAction="http://tempuri.org/KotonSosDoImportSASPost" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosCuttingRequestList">
+      <soap:operation soapAction="http://tempuri.org/KotonSosCuttingRequestList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosCuttingRequestApprove">
+      <soap:operation soapAction="http://tempuri.org/KotonSosCuttingRequestApprove" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosCuttingCancelRequestList">
+      <soap:operation soapAction="http://tempuri.org/KotonSosCuttingCancelRequestList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosCuttingCancelRequestApprove">
+      <soap:operation soapAction="http://tempuri.org/KotonSosCuttingCancelRequestApprove" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosPAFRequestList">
+      <soap:operation soapAction="http://tempuri.org/KotonSosPAFRequestList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosPAFRequestApprove">
+      <soap:operation soapAction="http://tempuri.org/KotonSosPAFRequestApprove" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosDoImportPAFPost">
+      <soap:operation soapAction="http://tempuri.org/KotonSosDoImportPAFPost" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosShipmentPreRequestList">
+      <soap:operation soapAction="http://tempuri.org/KotonSosShipmentPreRequestList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosShipmentPreRequestApprove">
+      <soap:operation soapAction="http://tempuri.org/KotonSosShipmentPreRequestApprove" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosShipmentRequestList">
+      <soap:operation soapAction="http://tempuri.org/KotonSosShipmentRequestList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosShipmentRequestApprove">
+      <soap:operation soapAction="http://tempuri.org/KotonSosShipmentRequestApprove" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosPAFCancelRequestList">
+      <soap:operation soapAction="http://tempuri.org/KotonSosPAFCancelRequestList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosPAFCancelRequestApprove">
+      <soap:operation soapAction="http://tempuri.org/KotonSosPAFCancelRequestApprove" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosShipmentPreRequestCancelList">
+      <soap:operation soapAction="http://tempuri.org/KotonSosShipmentPreRequestCancelList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosShipmentPreRequestCancelApprove">
+      <soap:operation soapAction="http://tempuri.org/KotonSosShipmentPreRequestCancelApprove" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosShipmentApprovalRequestCancelList">
+      <soap:operation soapAction="http://tempuri.org/KotonSosShipmentApprovalRequestCancelList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosShipmentApprovalRequestCancelApprove">
+      <soap:operation soapAction="http://tempuri.org/KotonSosShipmentApprovalRequestCancelApprove" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosShipmentRequestCancelList">
+      <soap:operation soapAction="http://tempuri.org/KotonSosShipmentRequestCancelList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosShipmentRequestCancelApprove">
+      <soap:operation soapAction="http://tempuri.org/KotonSosShipmentRequestCancelApprove" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosShipmentApprovalRequestList">
+      <soap:operation soapAction="http://tempuri.org/KotonSosShipmentApprovalRequestList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosShipmentApprovalRequestApprove">
+      <soap:operation soapAction="http://tempuri.org/KotonSosShipmentApprovalRequestApprove" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KotonDoExportCPRealizationDateList">
+      <soap:operation soapAction="http://tempuri.org/KotonDoExportCPRealizationDateList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KotonDoExportCPRealizationDateApprove">
+      <soap:operation soapAction="http://tempuri.org/KotonDoExportCPRealizationDateApprove" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosASNPackageGet">
+      <soap:operation soapAction="http://tempuri.org/ASNNo" style="document" />
+      <wsdl:input name="ASNNo">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ASNNo">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosASNPackageGet">
+      <soap:operation soapAction="http://tempuri.org/ASNNoWithJobOrder" style="document" />
+      <wsdl:input name="ASNNoWithJobOrder">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ASNNoWithJobOrder">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosASNPackageGet">
+      <soap:operation soapAction="http://tempuri.org/ASNNoWithJobOrderAndColour" style="document" />
+      <wsdl:input name="ASNNoWithJobOrderAndColour">
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ASNNoWithJobOrderAndColour">
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosDoExportImpExpShippedList">
+      <soap:operation soapAction="http://tempuri.org/KotonSosDoExportImpExpShippedList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosDoExportImpExpShippedApprove">
+      <soap:operation soapAction="http://tempuri.org/KotonSosDoExportImpExpShippedApprove" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosDoImportImpExpPost">
+      <soap:operation soapAction="http://tempuri.org/KotonSosDoImportImpExpPost" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosDoImportSASTAReviseDatePost">
+      <soap:operation soapAction="http://tempuri.org/KotonSosDoImportSASTAReviseDatePost" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosExportSASTABackList">
+      <soap:operation soapAction="http://tempuri.org/KotonSosExportSASTABackList" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosExportSASTABackApprove">
+      <soap:operation soapAction="http://tempuri.org/KotonSosExportSASTABackApprove" style="document" />
+      <wsdl:input>
+        <soap:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:binding name="LOSosIntegrationCustomerKotonSoap12" type="tns:LOSosIntegrationCustomerKotonSoap">
+    <soap12:binding transport="http://schemas.xmlsoap.org/soap/http" />
+    <wsdl:operation name="KotonSosDoImportProductPost">
+      <soap12:operation soapAction="http://tempuri.org/KotonSosDoImportProductPost" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosDoImportPartyPost">
+      <soap12:operation soapAction="http://tempuri.org/KotonSosDoImportPartyPost" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosDoImportSASPost">
+      <soap12:operation soapAction="http://tempuri.org/KotonSosDoImportSASPost" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosCuttingRequestList">
+      <soap12:operation soapAction="http://tempuri.org/KotonSosCuttingRequestList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosCuttingRequestApprove">
+      <soap12:operation soapAction="http://tempuri.org/KotonSosCuttingRequestApprove" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosCuttingCancelRequestList">
+      <soap12:operation soapAction="http://tempuri.org/KotonSosCuttingCancelRequestList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosCuttingCancelRequestApprove">
+      <soap12:operation soapAction="http://tempuri.org/KotonSosCuttingCancelRequestApprove" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosPAFRequestList">
+      <soap12:operation soapAction="http://tempuri.org/KotonSosPAFRequestList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosPAFRequestApprove">
+      <soap12:operation soapAction="http://tempuri.org/KotonSosPAFRequestApprove" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosDoImportPAFPost">
+      <soap12:operation soapAction="http://tempuri.org/KotonSosDoImportPAFPost" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosShipmentPreRequestList">
+      <soap12:operation soapAction="http://tempuri.org/KotonSosShipmentPreRequestList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosShipmentPreRequestApprove">
+      <soap12:operation soapAction="http://tempuri.org/KotonSosShipmentPreRequestApprove" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosShipmentRequestList">
+      <soap12:operation soapAction="http://tempuri.org/KotonSosShipmentRequestList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosShipmentRequestApprove">
+      <soap12:operation soapAction="http://tempuri.org/KotonSosShipmentRequestApprove" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosPAFCancelRequestList">
+      <soap12:operation soapAction="http://tempuri.org/KotonSosPAFCancelRequestList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosPAFCancelRequestApprove">
+      <soap12:operation soapAction="http://tempuri.org/KotonSosPAFCancelRequestApprove" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosShipmentPreRequestCancelList">
+      <soap12:operation soapAction="http://tempuri.org/KotonSosShipmentPreRequestCancelList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosShipmentPreRequestCancelApprove">
+      <soap12:operation soapAction="http://tempuri.org/KotonSosShipmentPreRequestCancelApprove" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosShipmentApprovalRequestCancelList">
+      <soap12:operation soapAction="http://tempuri.org/KotonSosShipmentApprovalRequestCancelList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosShipmentApprovalRequestCancelApprove">
+      <soap12:operation soapAction="http://tempuri.org/KotonSosShipmentApprovalRequestCancelApprove" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosShipmentRequestCancelList">
+      <soap12:operation soapAction="http://tempuri.org/KotonSosShipmentRequestCancelList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosShipmentRequestCancelApprove">
+      <soap12:operation soapAction="http://tempuri.org/KotonSosShipmentRequestCancelApprove" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosShipmentApprovalRequestList">
+      <soap12:operation soapAction="http://tempuri.org/KotonSosShipmentApprovalRequestList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosShipmentApprovalRequestApprove">
+      <soap12:operation soapAction="http://tempuri.org/KotonSosShipmentApprovalRequestApprove" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KotonDoExportCPRealizationDateList">
+      <soap12:operation soapAction="http://tempuri.org/KotonDoExportCPRealizationDateList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KotonDoExportCPRealizationDateApprove">
+      <soap12:operation soapAction="http://tempuri.org/KotonDoExportCPRealizationDateApprove" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosASNPackageGet">
+      <soap12:operation soapAction="http://tempuri.org/ASNNo" style="document" />
+      <wsdl:input name="ASNNo">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ASNNo">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosASNPackageGet">
+      <soap12:operation soapAction="http://tempuri.org/ASNNoWithJobOrder" style="document" />
+      <wsdl:input name="ASNNoWithJobOrder">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ASNNoWithJobOrder">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosASNPackageGet">
+      <soap12:operation soapAction="http://tempuri.org/ASNNoWithJobOrderAndColour" style="document" />
+      <wsdl:input name="ASNNoWithJobOrderAndColour">
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output name="ASNNoWithJobOrderAndColour">
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosDoExportImpExpShippedList">
+      <soap12:operation soapAction="http://tempuri.org/KotonSosDoExportImpExpShippedList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosDoExportImpExpShippedApprove">
+      <soap12:operation soapAction="http://tempuri.org/KotonSosDoExportImpExpShippedApprove" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosDoImportImpExpPost">
+      <soap12:operation soapAction="http://tempuri.org/KotonSosDoImportImpExpPost" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosDoImportSASTAReviseDatePost">
+      <soap12:operation soapAction="http://tempuri.org/KotonSosDoImportSASTAReviseDatePost" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosExportSASTABackList">
+      <soap12:operation soapAction="http://tempuri.org/KotonSosExportSASTABackList" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+    <wsdl:operation name="KotonSosExportSASTABackApprove">
+      <soap12:operation soapAction="http://tempuri.org/KotonSosExportSASTABackApprove" style="document" />
+      <wsdl:input>
+        <soap12:body use="literal" />
+      </wsdl:input>
+      <wsdl:output>
+        <soap12:body use="literal" />
+      </wsdl:output>
+    </wsdl:operation>
+  </wsdl:binding>
+  <wsdl:service name="LOSosIntegrationCustomerKoton">
+    <wsdl:port name="LOSosIntegrationCustomerKotonSoap" binding="tns:LOSosIntegrationCustomerKotonSoap">
+      <soap:address location="http://10.205.2.21/LOSCMSOSWPF/services/lososintegrationcustomerkoton.asmx" />
+    </wsdl:port>
+    <wsdl:port name="LOSosIntegrationCustomerKotonSoap12" binding="tns:LOSosIntegrationCustomerKotonSoap12">
+      <soap12:address location="http://10.205.2.21/LOSCMSOSWPF/services/lososintegrationcustomerkoton.asmx" />
+    </wsdl:port>
+  </wsdl:service>
+</wsdl:definitions>

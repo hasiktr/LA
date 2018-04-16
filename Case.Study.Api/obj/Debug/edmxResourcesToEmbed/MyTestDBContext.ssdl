@@ -1,0 +1,76 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="MyTestDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+  <EntityType Name="ErrorLog">
+    <Key>
+      <PropertyRef Name="Error_ID" />
+    </Key>
+    <Property Name="Error_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Error_Code" Type="nvarchar(max)" />
+    <Property Name="Error_StackTrace" Type="nvarchar(max)" />
+    <Property Name="Error_InnerException" Type="nvarchar(max)" />
+    <Property Name="Error_DateTime" Type="datetime" />
+  </EntityType>
+  <EntityType Name="Requests">
+    <Key>
+      <PropertyRef Name="Request_ID" />
+    </Key>
+    <Property Name="Request_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Request_Guid" Type="nvarchar" MaxLength="250" />
+    <Property Name="Request_StatusID" Type="bigint" />
+    <Property Name="Request_Response" Type="nvarchar" MaxLength="500" />
+    <Property Name="Request_Body" Type="nvarchar" MaxLength="500" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="Role_ID" />
+    </Key>
+    <Property Name="Role_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Role_Name" Type="nvarchar" MaxLength="50" />
+    <Property Name="Role_Description" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="Status">
+    <Key>
+      <PropertyRef Name="Status_ID" />
+    </Key>
+    <Property Name="Status_ID" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="Status_Name" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <EntityType Name="User">
+    <Key>
+      <PropertyRef Name="User_ID" />
+    </Key>
+    <Property Name="User_ID" Type="bigint" StoreGeneratedPattern="Identity" Nullable="false" />
+    <Property Name="User_Email" Type="nvarchar" MaxLength="50" />
+    <Property Name="User_EmailConfirmed" Type="bit" />
+    <Property Name="User_Password" Type="nvarchar" MaxLength="250" />
+    <Property Name="User_PasswordHash" Type="nvarchar(max)" />
+    <Property Name="User_UserName" Type="nvarchar" MaxLength="50" />
+    <Property Name="User_RoleID" Type="int" />
+    <Property Name="User_Active" Type="bit" />
+    <Property Name="User_CreateDate" Type="datetime" />
+    <Property Name="User_FullName" Type="nvarchar" MaxLength="50" />
+  </EntityType>
+  <Association Name="FK_User_User">
+    <End Role="User" Type="Self.User" Multiplicity="1" />
+    <End Role="User1" Type="Self.User" Multiplicity="0..1" />
+    <ReferentialConstraint>
+      <Principal Role="User">
+        <PropertyRef Name="User_ID" />
+      </Principal>
+      <Dependent Role="User1">
+        <PropertyRef Name="User_ID" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityContainer Name="MyTestDBModelStoreContainer">
+    <EntitySet Name="ErrorLog" EntityType="Self.ErrorLog" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Requests" EntityType="Self.Requests" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Role" EntityType="Self.Role" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="Status" EntityType="Self.Status" Schema="dbo" store:Type="Tables" />
+    <EntitySet Name="User" EntityType="Self.User" Schema="dbo" store:Type="Tables" />
+    <AssociationSet Name="FK_User_User" Association="Self.FK_User_User">
+      <End Role="User" EntitySet="User" />
+      <End Role="User1" EntitySet="User" />
+    </AssociationSet>
+  </EntityContainer>
+</Schema>

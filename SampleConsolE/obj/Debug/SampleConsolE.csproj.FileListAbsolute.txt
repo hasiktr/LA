@@ -1,0 +1,14 @@
+C:\Users\Burak\Desktop\Map\SampleConsolE\bin\Debug\SampleConsolE.exe.config
+C:\Users\Burak\Desktop\Map\SampleConsolE\bin\Debug\SampleConsolE.exe
+C:\Users\Burak\Desktop\Map\SampleConsolE\bin\Debug\SampleConsolE.pdb
+C:\Users\Burak\Desktop\Map\SampleConsolE\obj\Debug\SampleConsolE.csprojResolveAssemblyReference.cache
+C:\Users\Burak\Desktop\Map\SampleConsolE\obj\Debug\SampleConsolE.exe
+C:\Users\Burak\Desktop\Map\SampleConsolE\obj\Debug\SampleConsolE.pdb
+C:\Users\Burak\Desktop\Map\SampleConsolE\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\Burak\Desktop\Map\SampleConsolE\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\Burak\Desktop\Map\SampleConsolE\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Burak\Desktop\Map\SampleConsolE\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Burak\Desktop\Map\SampleConsolE\bin\Debug\Microsoft.Diagnostics.Tracing.EventSource.dll
+C:\Users\Burak\Desktop\Map\SampleConsolE\bin\Debug\RabbitMQ.Client.dll
+C:\Users\Burak\Desktop\Map\SampleConsolE\bin\Debug\Microsoft.Diagnostics.Tracing.EventSource.xml
+C:\Users\Burak\Desktop\Map\SampleConsolE\bin\Debug\RabbitMQ.Client.xml

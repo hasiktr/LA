@@ -1,0 +1,67 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+  <EntityContainerMapping StorageEntityContainer="MyTestDBModelStoreContainer" CdmEntityContainer="MyTestDBEntities">
+    <EntitySetMapping Name="Cities">
+      <EntityTypeMapping TypeName="MyTestDBModel.City">
+        <MappingFragment StoreEntitySet="City">
+          <ScalarProperty Name="City_Longitude" ColumnName="City_Longitude" />
+          <ScalarProperty Name="City_latitude" ColumnName="City_latitude" />
+          <ScalarProperty Name="City_Code" ColumnName="City_Code" />
+          <ScalarProperty Name="City_Name" ColumnName="City_Name" />
+          <ScalarProperty Name="City_ID" ColumnName="City_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ConnectedUsers">
+      <EntityTypeMapping TypeName="MyTestDBModel.ConnectedUser">
+        <MappingFragment StoreEntitySet="ConnectedUsers">
+          <ScalarProperty Name="Cous_ConnectionDate" ColumnName="Cous_ConnectionDate" />
+          <ScalarProperty Name="Cous_ConnectionID" ColumnName="Cous_ConnectionID" />
+          <ScalarProperty Name="Cous_UserID" ColumnName="Cous_UserID" />
+          <ScalarProperty Name="Cous_ID" ColumnName="Cous_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="ErrorLogs">
+      <EntityTypeMapping TypeName="MyTestDBModel.ErrorLog">
+        <MappingFragment StoreEntitySet="ErrorLog">
+          <ScalarProperty Name="Error_DateTime" ColumnName="Error_DateTime" />
+          <ScalarProperty Name="Error_InnerException" ColumnName="Error_InnerException" />
+          <ScalarProperty Name="Error_StackTrace" ColumnName="Error_StackTrace" />
+          <ScalarProperty Name="Error_Code" ColumnName="Error_Code" />
+          <ScalarProperty Name="Error_ID" ColumnName="Error_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Roles">
+      <EntityTypeMapping TypeName="MyTestDBModel.Role">
+        <MappingFragment StoreEntitySet="Role">
+          <ScalarProperty Name="Role_Description" ColumnName="Role_Description" />
+          <ScalarProperty Name="Role_Name" ColumnName="Role_Name" />
+          <ScalarProperty Name="Role_ID" ColumnName="Role_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+    <EntitySetMapping Name="Users">
+      <EntityTypeMapping TypeName="MyTestDBModel.User">
+        <MappingFragment StoreEntitySet="User">
+          <ScalarProperty Name="User_CityID" ColumnName="User_CityID" />
+          <ScalarProperty Name="User_Note" ColumnName="User_Note" />
+          <ScalarProperty Name="User_Longitude" ColumnName="User_Longitude" />
+          <ScalarProperty Name="User_Latitude" ColumnName="User_Latitude" />
+          <ScalarProperty Name="User_Avatar" ColumnName="User_Avatar" />
+          <ScalarProperty Name="User_FullName" ColumnName="User_FullName" />
+          <ScalarProperty Name="User_CreateDate" ColumnName="User_CreateDate" />
+          <ScalarProperty Name="User_Active" ColumnName="User_Active" />
+          <ScalarProperty Name="User_RoleID" ColumnName="User_RoleID" />
+          <ScalarProperty Name="User_UserName" ColumnName="User_UserName" />
+          <ScalarProperty Name="User_PasswordHash" ColumnName="User_PasswordHash" />
+          <ScalarProperty Name="User_Password" ColumnName="User_Password" />
+          <ScalarProperty Name="User_EmailConfirmed" ColumnName="User_EmailConfirmed" />
+          <ScalarProperty Name="User_Email" ColumnName="User_Email" />
+          <ScalarProperty Name="User_ID" ColumnName="User_ID" />
+        </MappingFragment>
+      </EntityTypeMapping>
+    </EntitySetMapping>
+  </EntityContainerMapping>
+</Mapping>

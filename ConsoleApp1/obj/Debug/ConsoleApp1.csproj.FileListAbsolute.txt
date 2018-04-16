@@ -1,0 +1,11 @@
+C:\Users\Burak\Desktop\Map\ConsoleApp1\bin\Debug\ConsoleApp1.exe.config
+C:\Users\Burak\Desktop\Map\ConsoleApp1\bin\Debug\ConsoleApp1.exe
+C:\Users\Burak\Desktop\Map\ConsoleApp1\bin\Debug\ConsoleApp1.pdb
+C:\Users\Burak\Desktop\Map\ConsoleApp1\bin\Debug\Microsoft.Diagnostics.Tracing.EventSource.dll
+C:\Users\Burak\Desktop\Map\ConsoleApp1\bin\Debug\Newtonsoft.Json.dll
+C:\Users\Burak\Desktop\Map\ConsoleApp1\bin\Debug\RabbitMQ.Client.dll
+C:\Users\Burak\Desktop\Map\ConsoleApp1\bin\Debug\Microsoft.Diagnostics.Tracing.EventSource.xml
+C:\Users\Burak\Desktop\Map\ConsoleApp1\bin\Debug\Newtonsoft.Json.xml
+C:\Users\Burak\Desktop\Map\ConsoleApp1\bin\Debug\RabbitMQ.Client.xml
+C:\Users\Burak\Desktop\Map\ConsoleApp1\obj\Debug\ConsoleApp1.exe
+C:\Users\Burak\Desktop\Map\ConsoleApp1\obj\Debug\ConsoleApp1.pdb
