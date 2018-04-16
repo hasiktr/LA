@@ -77,15 +77,15 @@ namespace Listener
         {
             using (SqlConnection conn = new SqlConnection())
             {
-                conn.ConnectionString = "metadata=res://*/MyTestDBContext.csdl|res://*/MyTestDBContext.ssdl|res://*/MyTestDBContext.msl;provider=System.Data.SqlClient;provider connection string=&quot;data source=.;initial catalog=BURAK;user id=sa;password=as;multipleactiveresultsets=True;application name=EntityFramework&quot;";
+                conn.ConnectionString = "data source=.;initial catalog=BURAK;user id=sa;password=as;multipleactiveresultsets=True;application name=EntityFramework&quot;";
                 conn.Open();
 
 
-                SqlCommand insertCommand = new SqlCommand("INSERT INTO User (User_Email, User_FullName, User_Password) VALUES (@0, @1, @2)", conn);
+                SqlCommand insertCommand = new SqlCommand("INSERT INTO dbo.User (User_Email, User_FullName, User_Password) VALUES (@0, @1, @2)", conn);
 
                 insertCommand.Parameters.Add(new SqlParameter("0", user.User_Email));
                 insertCommand.Parameters.Add(new SqlParameter("1", user.User_FullName));
-                insertCommand.Parameters.Add(new SqlParameter("1", user.User_Password));
+                insertCommand.Parameters.Add(new SqlParameter("2", user.User_Password));
                 insertCommand.ExecuteNonQuery();
                 conn.Close();
             }
