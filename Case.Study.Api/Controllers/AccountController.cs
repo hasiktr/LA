@@ -71,19 +71,20 @@ namespace Case.Study.Api.Controllers
                     throw new Exception("email or pass can not be empty");
 
                 string random_ = System.Guid.NewGuid().ToString();
-                this._RequestRepository.InsertRequest(new Api.Request()
+                Request req = new Api.Request()
                 {
                     Request_Body = requestBody_,
                     Request_Guid = random_,
                     Request_StatusID = (int)RequestStatus.QUE,
                     Request_Response = ""
-                });
+                };
+                this._RequestRepository.InsertRequest(req);
                 this._RequestRepository.Save();
                 result_.SuccessMessage = "ok";
                 result_.IsSuccess = true;
                 result_.Return = random_;
 
-                DoAddToQueue(UserModel_);
+                DoAddToQueue(req);
             }
             catch (Exception ex_)
             {
@@ -107,7 +108,7 @@ namespace Case.Study.Api.Controllers
                 return false;
         }
 
-        public void DoAddToQueue(User UserModel_)
+        public void DoAddToQueue(Request request)
         {
             var factory = new ConnectionFactory() { HostName = "localhost" };
             using (IConnection connection = factory.CreateConnection())
@@ -119,7 +120,7 @@ namespace Case.Study.Api.Controllers
                                      autoDelete: false,
                                      arguments: null);
 
-                string message = JsonConvert.SerializeObject(UserModel_);
+                string message = JsonConvert.SerializeObject(request);
                 var body = Encoding.UTF8.GetBytes(message);
 
                 channel.BasicPublish(exchange: "",
@@ -127,8 +128,6 @@ namespace Case.Study.Api.Controllers
                                      basicProperties: null,
                                      body: body);
             }
-
-
         }
          
     }
