@@ -51,23 +51,20 @@ namespace Listener
                                      arguments: null);
 
                 var consumer = new EventingBasicConsumer(channel);
-                User user = new User();
+
                 consumer.Received += (model, ea) =>
                 {
                     var body = ea.Body;
                     var message = Encoding.UTF8.GetString(body);
                     Request request = JsonConvert.DeserializeObject<Request>(message);
-                
-                    InsertUser(request);
+                    InsertUserAndUpdateRequestStatus(request);
                 };
-
-          
 
                 channel.BasicConsume(queue: "UserQueue",
                                      autoAck: false,
                                      consumer: consumer);
 
-                channel.QueueDelete(queue: "UserQueue");
+                channel.QueueDelete(queue: "UserQueue"); // Delete Queue
 
                 Console.WriteLine(" İşe Alındınız. Teşekkürler :)");
                 Console.ReadLine();
@@ -75,12 +72,11 @@ namespace Listener
         }
 
 
-        public static void InsertUser(Request request)
+        public static void InsertUserAndUpdateRequestStatus(Request request)
         {
             using (SqlConnection conn = new SqlConnection())
             {
               
-
                 conn.ConnectionString = "data source=.;initial catalog=BURAK;user id=sa;password=as;multipleactiveresultsets=True;application name=EntityFramework&quot;";
                 conn.Open();
 
@@ -89,7 +85,7 @@ namespace Listener
                 insertCommand.Parameters.Add(new SqlParameter("0", user.User_Email));
                 insertCommand.ExecuteNonQuery();
 
-                SqlCommand sqlCommand = new SqlCommand("UPDATE Requests set Request_StatusID = 2 where" + "  Request_ID = " + request.Request_ID, conn);
+                SqlCommand sqlCommand = new SqlCommand("UPDATE Requests set Request_StatusID = 3 where" + "  Request_ID = " + request.Request_ID, conn);
                 sqlCommand.ExecuteNonQuery();
                 conn.Close();
             }
