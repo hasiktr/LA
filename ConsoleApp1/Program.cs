@@ -70,7 +70,6 @@ namespace Listener
             }
         }
 
-
         private static void InsertUserAndUpdateRequestStatus(Request request)
         {
             using (SqlConnection conn = new SqlConnection())

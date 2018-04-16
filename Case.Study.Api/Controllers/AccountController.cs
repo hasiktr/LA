@@ -15,7 +15,7 @@ using System.Web.Http;
 using System.Web.Script.Serialization;
 
 namespace Case.Study.Api.Controllers
-{ 
+{
     public class AccountController : BaseApiController
     {
         private IUserRepository _UserRepository;
@@ -33,7 +33,7 @@ namespace Case.Study.Api.Controllers
         }
 
         [Authorize(Roles = "Administrator")]
-        [HttpPost,HttpGet] 
+        [HttpPost, HttpGet]
         [Route("api/log/{guid}")]
         public IHttpActionResult CheckUser(string guid)
         {
@@ -57,7 +57,7 @@ namespace Case.Study.Api.Controllers
         }
 
         [Authorize(Roles = "Administrator")]
-        [HttpPost,HttpGet]
+        [HttpPost, HttpGet]
         [Route("api/user/insert")]
         public IHttpActionResult AddUser(User UserModel_)
         {
@@ -93,8 +93,8 @@ namespace Case.Study.Api.Controllers
                 result_.IsSuccess = false;
             }
             return Content<ResultModel>(HttpStatusCode.OK, result_);
-        } 
-  
+        }
+
         private bool IsSessionUser(string Email_)
         {
             var identity_ = (ClaimsPrincipal)Thread.CurrentPrincipal;
@@ -129,6 +129,5 @@ namespace Case.Study.Api.Controllers
                                      body: body);
             }
         }
-         
     }
 }
