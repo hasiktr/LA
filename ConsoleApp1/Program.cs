@@ -61,10 +61,9 @@ namespace Listener
                 };
 
                 channel.BasicConsume(queue: "UserQueue",
-                                     autoAck: false,
+                                     autoAck: true,
                                      consumer: consumer);
 
-                channel.QueueDelete(queue: "UserQueue"); // Delete Queue
 
                 Console.WriteLine(" İşe Alındınız. Teşekkürler :)");
                 Console.ReadLine();
