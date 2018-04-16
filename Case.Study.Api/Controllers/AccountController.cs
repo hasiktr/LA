@@ -84,7 +84,7 @@ namespace Case.Study.Api.Controllers
                 result_.IsSuccess = true;
                 result_.Return = random_;
 
-                DoAddToQueue(req);
+                DoAddRequestToQueue(req);
             }
             catch (Exception ex_)
             {
@@ -108,7 +108,7 @@ namespace Case.Study.Api.Controllers
                 return false;
         }
 
-        public void DoAddToQueue(Request request)
+        public void DoAddRequestToQueue(Request request)
         {
             var factory = new ConnectionFactory() { HostName = "localhost" };
             using (IConnection connection = factory.CreateConnection())
