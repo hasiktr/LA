@@ -120,29 +120,35 @@ Logue Case Study
 ##### get request detail from message 
 ##### Insert user and update request status
 ``` c#
-        public partial class Request
+               static void Main(string[] args)
         {
-            public long Request_ID { get; set; }
-            public string Request_Guid { get; set; }
-            public Nullable<long> Request_StatusID { get; set; }
-            public string Request_Response { get; set; }
-            public string Request_Body { get; set; }
-        }
+            var factory = new ConnectionFactory() { HostName = "localhost" };
+            using (IConnection connection = factory.CreateConnection())
+            using (IModel channel = connection.CreateModel())
+            {
+                channel.QueueDeclare(queue: "UserQueue",
+                                     durable: false,
+                                     exclusive: false,
+                                     autoDelete: false,
+                                     arguments: null);
 
-        public partial class User
-        {
-            public long User_ID { get; set; }
-            public string User_Email { get; set; }
-            public Nullable<bool> User_EmailConfirmed { get; set; }
-            public string User_Password { get; set; }
-            public string User_PasswordHash { get; set; }
-            public string User_UserName { get; set; }
-            public Nullable<int> User_RoleID { get; set; }
-            public Nullable<bool> User_Active { get; set; }
-            public Nullable<System.DateTime> User_CreateDate { get; set; }
-            public string User_FullName { get; set; }
+                var consumer = new EventingBasicConsumer(channel);
 
-            public virtual User User1 { get; set; }
-            public virtual User User2 { get; set; }
+                consumer.Received += (model, ea) =>
+                {
+                    var body = ea.Body;
+                    var message = Encoding.UTF8.GetString(body);
+                    Request request = JsonConvert.DeserializeObject<Request>(message);
+                    InsertUserAndUpdateRequestStatus(request);
+                };
+
+                channel.BasicConsume(queue: "UserQueue",
+                                     autoAck: true,
+                                     consumer: consumer);
+
+
+                Console.WriteLine(" İşe Alındınız. Teşekkürler :)");
+                Console.ReadLine();
+            }
         }
 ```
