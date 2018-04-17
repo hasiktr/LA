@@ -163,6 +163,4 @@ Logue Case Study
 
 
 
-![untitled](https://user-images.githubusercontent.com/17234785/38856793-1cd175c2-4230-11e8-84a7-3fe26ae6f66d.png)
-
 
