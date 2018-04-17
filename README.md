@@ -117,9 +117,10 @@ Logue Case Study
 # Case.Study.Listener
 
 ##### This console application is used to get messages from Queue. 
-##### Recevice request and user details from message
-##### Add user to table
-##### Update Request Status
+- Recevice request and user details from message
+- Add user to table
+- Update Request Status
+
 ``` c#
  static void Main(string[] args)
         {
