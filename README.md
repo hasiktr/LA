@@ -53,3 +53,29 @@ LOGUE.bak file could be used to restore a  copy of the database
             }
 ```
 
+``` c#
+  [Authorize(Roles = "Administrator")]
+        [HttpPost, HttpGet]
+        [Route("api/log/{guid}")]
+        public IHttpActionResult CheckUser(string guid)
+        {
+            ResultModel<string> result_ = new ResultModel<string>();
+            try
+            {
+                var request_ = this._RequestRepository.GetRequestByGuid(guid);
+                if (request_ != null)
+                    result_.Data = Enum.GetName(typeof(RequestStatus), request_.Request_StatusID);
+                else
+                    throw new Exception("contact with system administratoır");
+                result_.IsSuccess = true;
+            }
+            catch (Exception ex_)
+            {
+                Logger.Log.Add(ex_);
+                result_.ErrorMessage = ex_.Message;
+                result_.IsSuccess = false;
+            }
+            return Content<ResultModel<string>>(HttpStatusCode.OK, result_);
+        }
+     
+     ```
