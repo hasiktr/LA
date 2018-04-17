@@ -72,7 +72,7 @@ namespace Case.Study.Listener
             using (SqlConnection conn = new SqlConnection())
             {
               
-                conn.ConnectionString = "data source=.;initial catalog=BURAK;user id=sa;password=as;multipleactiveresultsets=True;application name=EntityFramework&quot;";
+                conn.ConnectionString = "data source=.;initial catalog=LOGUE;user id=sa;password=as;multipleactiveresultsets=True;application name=EntityFramework&quot;";
                 conn.Open();
 
                 User user = JsonConvert.DeserializeObject<User>(request.Request_Body);
