@@ -82,5 +82,31 @@ Logue Case Study
             }
             return Content<ResultModel<string>>(HttpStatusCode.OK, result_);
         }
-     
-     ```
+ ```
+
+## DoAddRequestToQueue 
+
+###### To declare a quueue and to add a message to the queue with request details
+``` c#
+ public void DoAddRequestToQueue(Request request)
+        {
+            var factory = new ConnectionFactory() { HostName = "localhost" };
+            using (IConnection connection = factory.CreateConnection())
+            using (IModel channel = connection.CreateModel())
+            {
+                channel.QueueDeclare(queue: "UserQueue",
+                                     durable: false,
+                                     exclusive: false,
+                                     autoDelete: false,
+                                     arguments: null);
+
+                string message = JsonConvert.SerializeObject(request);
+                var body = Encoding.UTF8.GetBytes(message);
+
+                channel.BasicPublish(exchange: "",
+                                     routingKey: "UserQueue",
+                                     basicProperties: null,
+                                     body: body);
+            }
+        }
+```
