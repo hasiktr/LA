@@ -120,7 +120,7 @@ Logue Case Study
 ##### get request detail from message 
 ##### Insert user and update request status
 ``` c#
-               static void Main(string[] args)
+ static void Main(string[] args)
         {
             var factory = new ConnectionFactory() { HostName = "localhost" };
             using (IConnection connection = factory.CreateConnection())
