@@ -11,7 +11,9 @@ Logue Case Study
 
 ###### LOGUE.bak file could be used to restore a  copy of the database 
 
+## AddUser 
 
+###### To add a new requset with user details 
 ```C#
         [Authorize(Roles = "Administrator")]
         [HttpPost, HttpGet]
