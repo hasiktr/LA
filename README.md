@@ -116,7 +116,9 @@ Logue Case Study
 
 # Case.Study.Listener
 
-##### Classes 
+##### This console application is used to get messages from Queue.
+##### get request detail from message 
+##### Insert user and update request status
 ``` c#
         public partial class Request
         {
