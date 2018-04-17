@@ -52,7 +52,7 @@ LOGUE.bak file could be used to restore a  copy of the database
             return Content<ResultModel>(HttpStatusCode.OK, result_);
         }
 ```
-
+###### Check the status of a request:
 ``` c#
   [Authorize(Roles = "Administrator")]
         [HttpPost, HttpGet]
