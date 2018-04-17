@@ -157,7 +157,7 @@ Logue Case Study
 
 # Case.Study.UI
 
-###### User interface to get info from user
+###### A form to get user info 
 
 ![capture](https://user-images.githubusercontent.com/17234785/38850341-a9d9028a-4219-11e8-8a0a-d020c701e4c3.PNG)
 
