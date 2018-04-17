@@ -54,6 +54,9 @@ Logue Case Study
             return Content<ResultModel>(HttpStatusCode.OK, result_);
         }
 ```
+
+## CheckUser 
+
 ###### Check the status of a request:
 ``` c#
   [Authorize(Roles = "Administrator")]
