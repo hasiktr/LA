@@ -44,7 +44,7 @@ namespace Case.Study.Api.Controllers
                 if (request_ != null)
                     result_.Data = Enum.GetName(typeof(RequestStatus), request_.Request_StatusID);
                 else
-                    throw new Exception("contact with system administratoır");
+                    throw new Exception("Authentication failed because the access token was invalid");
                 result_.IsSuccess = true;
             }
             catch (Exception ex_)

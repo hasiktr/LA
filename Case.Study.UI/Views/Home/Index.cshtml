@@ -62,13 +62,18 @@
                     //request.setRequestHeader("Accept-Language", window._SelectedLang);
                 },
                 success: function (response) {
-                    onSuccess(response);
+                    if (response.IsSuccess)
+                        onSuccess(response);
+                    else
+                        window.alert(response.ErrorMessage);
                 },
                 statusCode: {
                     404: function (content) { alert('cannot find resource'); },
                     500: function (content) { alert('internal server error'); }
                 },
-                error: function (req, status, errorObj) { }
+                error: function (req, status, errorObj) {
+                    window.alert(errorObj);
+                }
             });
         }
     }
@@ -96,9 +101,12 @@
             });
     }
     function onClickCheck() {
-        APIHelper.checkUser($('#label-result')[0].innerText, function (response) {
-            $('#label-result')[0].innerText = response.Data;
-        })
+        if ($('#label-result')[0].innerText != "") {
+            APIHelper.checkUser($('#label-result')[0].innerText, function (response) {
+                $('#label-result')[0].innerText = response.Data;
+            })
+        }
+
     }
 </script>
 <div class="row">

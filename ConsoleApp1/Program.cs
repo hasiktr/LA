@@ -62,7 +62,7 @@ namespace Case.Study.Listener
                                      consumer: consumer);
 
 
-                Console.WriteLine(" İşe Alındınız. Teşekkürler :)");
+                Console.WriteLine("İşlem tamamlandı. Kullanıcı kaydı açıldı");
                 Console.ReadLine();
             }
         }
@@ -71,17 +71,19 @@ namespace Case.Study.Listener
         {
             using (SqlConnection conn = new SqlConnection())
             {
-              
+
                 conn.ConnectionString = "data source=.;initial catalog=LOGUE;user id=sa;password=as;multipleactiveresultsets=True;application name=EntityFramework&quot;";
                 conn.Open();
 
                 User user = JsonConvert.DeserializeObject<User>(request.Request_Body);
 
-                SqlCommand insertCommand = new SqlCommand("INSERT INTO dbo.Users (User_Email) VALUES (@0)", conn);
-                insertCommand.Parameters.Add(new SqlParameter("0", user.User_Email));
-
+                SqlCommand insertCommand = new SqlCommand("INSERT INTO dbo.Users (User_Email,User_Password,User_UserName,User_FullName) VALUES (@0,@1,@2,@3)", conn);
+                insertCommand.Parameters.Add(new SqlParameter("0", user.User_Email ?? ""));
+                insertCommand.Parameters.Add(new SqlParameter("1", user.User_Password ?? ""));
+                insertCommand.Parameters.Add(new SqlParameter("2", user.User_UserName ?? ""));
+                insertCommand.Parameters.Add(new SqlParameter("3", user.User_FullName ?? ""));
                 insertCommand.ExecuteNonQuery();
-           
+
                 SqlCommand sqlCommand = new SqlCommand("UPDATE Requests set Request_StatusID = 3 where" + "  Request_ID = " + request.Request_ID, conn);
                 sqlCommand.ExecuteNonQuery();
                 conn.Close();
